@@ -13,15 +13,12 @@ export default class TaskList {
   addTask = (task, index = null) => {
     if (index === null) {
       this.tasks.addAtEnd(task);
-      // console.log(`Task "${task.description}" added to the list.`);
       return;
     }
     if (!this.tasks.get(index)) {
-      // console.error(`The position ${index} is invalid. The task was not added.`);
       return;
     }
     this.tasks.addAtPosition(index, task);
-    // console.log(`Task "${task.description}" added at position "${index}".`);
   };
 
   getTasksByTag = (tag) => {
@@ -57,17 +54,6 @@ export default class TaskList {
     return null;
   };
 
-  removeTaskByIndex = (index) => {
-    const item = this.tasks.removeAtPosition(index);
-    if (item === null) {
-      console.error(
-        `The position ${index} is invalid. The task was not deleted.`
-      );
-      return;
-    }
-    console.log(`Task "${item.description}" deleted.`);
-  };
-
   setTaskToCompleted = (id) => {
     const taskItem = this.getTaskById(id);
     if (taskItem) {
@@ -84,5 +70,19 @@ export default class TaskList {
       taskItem.setTag(task.tag);
     }
     return taskItem;
+  };
+
+  move = (id, targetIndex) => {
+    if (targetIndex < 0 || targetIndex > this.tasks.getSize()) {
+      return null;
+    }
+    const taskItem = this.getTaskById(id);
+    let sourceIndex = this.tasks.indexOf(taskItem);
+    if (taskItem && sourceIndex != targetIndex) {
+      this.tasks.removeAtPosition(sourceIndex);
+      this.tasks.addAtPosition(targetIndex, taskItem);
+      return;
+    }
+    return null;
   };
 }

@@ -148,8 +148,13 @@ export default class LinkedList {
     };
 
     toArray = () => {
+        let current = this.head;
         let vect = [];
-        // FAZER
+        
+        while (current) {
+            vect.push(current.value);
+            current = current.next;
+        }
         return vect;
     }
 }
