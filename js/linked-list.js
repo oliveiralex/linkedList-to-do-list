@@ -6,7 +6,7 @@ class Node {
     }
 }
 
-class LinkedList {
+export default class LinkedList {
     constructor() {
         this.head = null;
         this.size = 0;
@@ -147,58 +147,9 @@ class LinkedList {
         return true;
     };
 
-    printLinkedList = () => {
-        let current = this.head;
-        while (current != null) {
-            console.log(current.value);
-            current = current.next;
-        }
-    };
+    toArray = () => {
+        let vect = [];
+        // FAZER
+        return vect;
+    }
 }
-
-module.exports = { LinkedList };
-
-// let linkedList = new LinkedList();
-
-// 20 -> 9 -> 86-> -2 -> 16 
-
-// linkedList.addAtEnd(20);
-// linkedList.addAtEnd(9);
-// linkedList.addAtEnd(86);
-// linkedList.addAtEnd(-2);
-// linkedList.addAtEnd(16);
-
-// console.log("Imprime lista:");
-// linkedList.printLinkedList();
-
-// console.log("Removendo elemento 86:", linkedList.remove(86));
-
-// console.log("Imprime lista:");
-// linkedList.printLinkedList();
-
-// console.log("Removendo elemento 16:", linkedList.remove(16));
-
-// console.log("Imprime lista:");
-// linkedList.printLinkedList();
-
-// console.log("Removendo elemento 10:", linkedList.remove(10));
-
-// console.log("Imprime lista:");
-// linkedList.printLinkedList();
-
-// linkedList.clear();
-// console.log("Removendo elemento 20:", linkedList.remove(20));
-
-
-// console.log("Removendo elemento da posicao 3:", linkedList.removeAtPosition(3));
-
-// console.log("Imprime lista:");
-// linkedList.printLinkedList();
-
-// console.log("Removendo elemento da posicao 10:", linkedList.removeAtPosition(10));
-
-// console.log("Imprime lista:");
-// linkedList.printLinkedList();
-
-
-
